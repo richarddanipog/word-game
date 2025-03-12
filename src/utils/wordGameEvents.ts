@@ -37,10 +37,10 @@ export const registerWordGameEvents = (
         `https://api.dictionaryapi.dev/api/v2/entries/en/${wordToCheck}`
       );
 
-      return setBorderColor('green');
+      setBorderColor('green');
     } catch (error) {
       console.error('Error checking word:', error);
-      return setBorderColor('red');
+      setBorderColor('red');
     }
   };
 

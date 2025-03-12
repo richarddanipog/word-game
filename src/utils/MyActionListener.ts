@@ -8,7 +8,8 @@ class MyActionListener {
   }
 
   registerListener(action: string, listener: TListener): void {
-    if (!this.actions.has(action)) {
+    const eventNotExist = !this.actions.has(action);
+    if (eventNotExist) {
       this.actions.set(action, []);
     }
 
@@ -23,7 +24,8 @@ class MyActionListener {
   }
 
   emit(action: string, data?: string): void {
-    if (!this.actions.has(action)) {
+    const eventNotExist = !this.actions.has(action);
+    if (eventNotExist) {
       throw new Error(`Can't emit an event. Event "${action}" doesn't exist.`);
     }
 
