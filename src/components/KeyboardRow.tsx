@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import CharacterButton from './CharacterButton';
 
 interface IKeyboardRowProps {
@@ -23,4 +23,4 @@ const KeyboardRow: FC<IKeyboardRowProps> = ({
   );
 };
 
-export default KeyboardRow;
+export default memo(KeyboardRow);

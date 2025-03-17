@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 interface ICharacterButtonProps {
   character: string;
@@ -20,4 +20,4 @@ const CharacterButton: FC<ICharacterButtonProps> = ({ character, onClick }) => {
   );
 };
 
-export default CharacterButton;
+export default memo(CharacterButton);

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import CharacterSquare from './CharacterSquare';
 import KeyboardRow from './KeyboardRow';
 import CharacterButton from './CharacterButton';
@@ -18,17 +18,17 @@ const WordGame: FC = () => {
   const { word, borderColor } = useWordGame();
   const squares = Array(MAX_LENGTH).fill(null);
 
-  const handleCharacterClick = (character: string): void => {
+  const handleCharacterClick = useCallback((character: string): void => {
     actionListener.emit(ADD_CHARACTER, character);
-  };
+  }, []);
 
-  const handleBackspace = (): void => {
+  const handleBackspace = useCallback((): void => {
     actionListener.emit(REMOVE_CHARACTER);
-  };
+  }, []);
 
-  const handleEnter = (): void => {
+  const handleEnter = useCallback((): void => {
     actionListener.emit(CHECK_WORD);
-  };
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
